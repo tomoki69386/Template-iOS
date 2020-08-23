@@ -35,5 +35,6 @@ targets:
     dependencies:
       - target: Template
     scheme:
+      gatherCoverageData: true
       testTargets:
         - TemplateTests
