@@ -13,7 +13,7 @@ bundle-install: # Install bundle dependencies
 
 gen: # Generate project with XcodeGen
 	rm -r -f *.xcodeproj
-	mint run xcodegen
+	mint run xcodegen xcodegen generate
 
 open:
 	open *.xcodeproj
