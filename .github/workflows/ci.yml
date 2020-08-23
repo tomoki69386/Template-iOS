@@ -51,11 +51,11 @@ jobs:
 
     # ビルド
     - name: Xcode build
-      run: set -o pipefail && xcodebuild build-for-testing -project Template.xcodeproj -scheme Template -destination 'generic/platform=iOS Simulator' ENABLE_TESTABILITY=YES | bundle exec xcpretty
+      run: set -o pipefail && xcodebuild build-for-testing -project Template.xcodeproj -scheme Template -destination 'generic/platform=iOS Simulator' ENABLE_TESTABILITY=YES
 
     # 単体テストの実行
     - name: Xcode test
-      run: set -o pipefail && xcodebuild test-without-building -project Template.xcodeproj -scheme TemplateTests RECORD_MODE_ENV=true -destination 'name=iPhone X,OS=13.6' -only-testing:TemplateTests | bundle exec xcpretty
+      run: set -o pipefail && xcodebuild test-without-building -project Template.xcodeproj -scheme TemplateTests RECORD_MODE_ENV=true -destination 'name=iPhone X,OS=13.6' -only-testing:TemplateTests
 
     # コードカバレッジの出力
     - name: Convert Code coverage to HTML
