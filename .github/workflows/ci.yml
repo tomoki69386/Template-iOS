@@ -23,17 +23,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache Gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
-
-    - name: Bundle install
-      run: bundle config path vendor/bundle
-
     - name: Install Mint
       run: brew install mint
 
@@ -45,30 +34,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-mint-
 
-    # プロジェクトファイルの生成
     - name: Generate Xcode project with XcodeGen
       run: mint run xcodegen xcodegen generate
 
-    # ビルド
-    - name: Xcode build
-      run: set -o pipefail && xcodebuild build-for-testing -project Template.xcodeproj -scheme Template -destination 'generic/platform=iOS Simulator' ENABLE_TESTABILITY=YES
+    - name: iOS test
+      run: |
+        set -o pipefail
+        xcodebuild build-for-testing test-without-building -project Template.xcodeproj -scheme TemplateTests -configuration Debug -sdk iphonesimulator -destination "name=iPhone 8" ENABLE_TESTABILITY=YES | xcpretty -c
 
-    # 単体テストの実行
-    - name: Xcode test
-      run: set -o pipefail && xcodebuild test-without-building -project Template.xcodeproj -scheme TemplateTests RECORD_MODE_ENV=true -destination 'name=iPhone 11 Pro,OS=13.6' -only-testing:TemplateTests
-
-    # コードカバレッジの出力
-    - name: Convert Code coverage to HTML
-      run: bundle exec slather coverage --html --output-directory html_report
-
-    # テスト結果のアップロード
-    - uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: build/reports
-
-    # コードカバレッジのアップロード
-    - uses: actions/upload-artifact@v2
-      with:
-        name: test-coverage
-        path: html_report
+    - name: codecov
+      run: bash <(curl -s https://codecov.io/bash)
+      if: success()
