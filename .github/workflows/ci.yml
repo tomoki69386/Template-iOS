@@ -55,7 +55,7 @@ jobs:
 
     # 単体テストの実行
     - name: Xcode test
-      run: set -o pipefail && xcodebuild test-without-building -project Template.xcodeproj -scheme TemplateTests RECORD_MODE_ENV=true -destination 'name=iPhone X,OS=13.6' -only-testing:TemplateTests
+      run: set -o pipefail && xcodebuild test-without-building -project Template.xcodeproj -scheme TemplateTests RECORD_MODE_ENV=true -destination 'name=iPhone 11 Pro,OS=13.6' -only-testing:TemplateTests
 
     # コードカバレッジの出力
     - name: Convert Code coverage to HTML
