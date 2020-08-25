@@ -14,6 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        if isTesting {
+            return
+        }
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = .init(windowScene: windowScene)
@@ -24,3 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension SceneDelegate {
+    var isTesting: Bool {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+    }
+}
