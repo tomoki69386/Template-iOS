@@ -5,10 +5,6 @@ on:
     paths-ignore:
       - Docs/**
       - README.md
-  pull_request:
-    paths-ignore:
-      - Docs/**
-      - README.md
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
