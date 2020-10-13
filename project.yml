@@ -20,13 +20,12 @@ targets:
         TARGETED_DEVICE_FAMILY: 1
         DEVELOPMENT_TEAM: AV9FQ3YF56
         PRODUCT_BUNDLE_IDENTIFIER: com.tomoki-sun.app.ios.App
+        INFOPLIST_FILE: ./App/Resources/Info.plist
       configs:
         Debug:
           CODE_SIGN_IDENTITY: iPhone Developer
-          INFOPLIST_FILE: App/Resources/Info/Debug.plist
         Release:
           CODE_SIGN_IDENTITY: iPhone Distribution
-          INFOPLIST_FILE: App/Resources/Info/Release.plist
   AppTests:
     type: bundle.unit-test
     platform: iOS
