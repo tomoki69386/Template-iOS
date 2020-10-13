@@ -1,12 +1,12 @@
 //
 //  RootViewControllerTests.swift
-//  TemplateTests
+//  AppTests
 //
 //  Created by 築山朋紀 on 2020/08/26.
 //
 
 import XCTest
-@testable import Template
+@testable import App
 
 class RootViewControllerTests: XCTestCase {
     func testInit() {

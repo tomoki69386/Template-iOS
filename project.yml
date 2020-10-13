@@ -1,4 +1,4 @@
-name: Template
+name: App
 fileGroups:
   - README.md
 options:
@@ -8,33 +8,33 @@ config:
   Debug: debug
   Release: release
 targets:
-  Template:
+  App:
     type: application
     platform: iOS
     developmentTarget: 13.0
     sources:
-      - path: Template
+      - path: App
     scheme: {}
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
         DEVELOPMENT_TEAM: AV9FQ3YF56
-        PRODUCT_BUNDLE_IDENTIFIER: com.tomoki-sun.app.ios.template
+        PRODUCT_BUNDLE_IDENTIFIER: com.tomoki-sun.app.ios.App
       configs:
         Debug:
           CODE_SIGN_IDENTITY: iPhone Developer
-          INFOPLIST_FILE: Template/Resources/Info/Debug.plist
+          INFOPLIST_FILE: App/Resources/Info/Debug.plist
         Release:
           CODE_SIGN_IDENTITY: iPhone Distribution
-          INFOPLIST_FILE: Template/Resources/Info/Release.plist
-  TemplateTests:
+          INFOPLIST_FILE: App/Resources/Info/Release.plist
+  AppTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - path: TemplateTests
+      - path: AppTests
     dependencies:
-      - target: Template
+      - target: App
     scheme:
       gatherCoverageData: true
       testTargets:
-        - TemplateTests
+        - AppTests

@@ -1,6 +1,6 @@
 //
 //  InfoTests.swift
-//  TemplateTests
+//  AppTests
 //
 //  Created by 築山朋紀 on 2020/08/26.
 //
