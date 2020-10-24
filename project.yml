@@ -47,6 +47,11 @@ targets:
       gatherCoverageData: true
       testTargets:
         - SharedTests
+    info:
+      path: './Shared/Info.plist'
+      properties:
+        CFBundleName: Shared
+        CFBundleIdentifier: com.tomoki-sun.app.ios.Shared
 
   SharedTests:
     type: bundle.unit-test
