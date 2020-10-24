@@ -33,7 +33,7 @@ jobs:
     - name: Generate Xcode project with XcodeGen
       run: mint run xcodegen xcodegen generate
 
-    - name: iOS test
+    - name: application test
       run: |
         set -o pipefail
         xcodebuild build-for-testing test-without-building -project App.xcodeproj -scheme AppTests -configuration Debug -sdk iphonesimulator -destination "name=iPhone 8" ENABLE_TESTABILITY=YES | xcpretty -c
@@ -65,7 +65,7 @@ jobs:
     - name: Generate Xcode project with XcodeGen
       run: mint run xcodegen xcodegen generate
 
-    - name: iOS test
+    - name: Shared framework test
       run: |
         set -o pipefail
         xcodebuild build-for-testing test-without-building -project App.xcodeproj -scheme SharedTests -configuration Debug -sdk iphonesimulator -destination "name=iPhone 8" ENABLE_TESTABILITY=YES | xcpretty -c
