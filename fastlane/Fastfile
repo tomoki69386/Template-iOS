@@ -44,7 +44,7 @@ platform :ios do
     shortVersionString = "#{today.year}.#{today.month}.#{today.day}"
 
     set_info_plist_value(
-      path: './App/Resources/Info/Release.plist',
+      path: './App/Resources/Info.plist',
       key: 'CFBundleShortVersionString',
       value: shortVersionString
     )
