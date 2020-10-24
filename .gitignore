@@ -2,4 +2,5 @@
 .DS_Store
 vendor/
 *.xcodeproj/
-.mint/
+mint/
+fastlane/report.xml

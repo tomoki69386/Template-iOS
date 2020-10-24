@@ -16,6 +16,11 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios setup_xcodeproj
+```
+fastlane ios setup_xcodeproj
+```
+
 ### ios all_certificates
 ```
 fastlane ios all_certificates

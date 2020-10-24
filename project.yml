@@ -1,6 +1,4 @@
 name: App
-fileGroups:
-  - README.md
 options:
   developmentLanguage: ja
   xcodeVersion: 11.5
@@ -15,6 +13,8 @@ targets:
     sources:
       - path: App
     scheme: {}
+    dependencies:
+      - target: Shared
     settings:
       base:
         TARGETED_DEVICE_FAMILY: 1
@@ -26,6 +26,7 @@ targets:
           CODE_SIGN_IDENTITY: iPhone Developer
         Release:
           CODE_SIGN_IDENTITY: iPhone Distribution
+
   AppTests:
     type: bundle.unit-test
     platform: iOS
@@ -37,3 +38,23 @@ targets:
       gatherCoverageData: true
       testTargets:
         - AppTests
+
+  Shared:
+    type: framework
+    platform: iOS
+    sources: Shared
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - SharedTests
+
+  SharedTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: SharedTests
+    dependencies:
+      - target: Shared
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - SharedTests
