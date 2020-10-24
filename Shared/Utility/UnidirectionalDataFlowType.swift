@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UnidirectionalDataFlowType {
+public protocol UnidirectionalDataFlowType {
     associatedtype InputType
 
     func apply(_ input: InputType)

@@ -1,5 +1,5 @@
 //
-//  ViewModelType.swift
+//  Injectable.swift
 //  App
 //
 //  Created by 築山朋紀 on 2020/07/16.
@@ -8,4 +8,7 @@
 
 import Foundation
 
-typealias ViewModelTyp = Injectable & UnidirectionalDataFlowType
+public protocol Injectable {
+    associatedtype Dependency
+    init(dependency: Dependency)
+}
