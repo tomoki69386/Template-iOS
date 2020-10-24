@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import App
+import Shared
 
 class LoggerTests: XCTestCase {
     func testLogger() {
